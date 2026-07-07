@@ -227,7 +227,7 @@ class TraktSyncDatabase(trakt_sync.TraktSyncDatabase):
 
     def _sync_watched_movies(self):
         try:
-            trakt_watched = self.trakt_api.get_json("/sync/watched/movies", extended="full")
+            trakt_watched = self.trakt_api.get_json("/sync/watched/movies", extended="min")
             if len(trakt_watched) == 0:
                 return
             self.insert_trakt_movies(trakt_watched)
